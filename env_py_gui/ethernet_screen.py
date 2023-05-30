@@ -87,7 +87,10 @@ class EthernetScreen(ttk.Frame):
 
         
 
-        self.IPv4_label = Label(main_part, text='IPv4', font=('Arial', 23), fg='white', bg='black')
+        self.IPv4_label = Label(main_part, text='', font=('Arial', 23), fg='white', bg='black')
+        def go_ipv4_screen(event):
+            self.show_ipv4_screen()
+        self.IPv4_label.bind('<Button-1>', go_ipv4_screen)
         self.IPv4_label.grid(row=2, column=0, sticky="W", padx=20)
         self.IPv4_toggle_frame = Frame(main_part, bg='black')
         self.IPv4_toggle_frame.grid(row=3, column=0, sticky='W',padx=20)
@@ -95,7 +98,7 @@ class EthernetScreen(ttk.Frame):
         self.IPv4_toggle_frame.rowconfigure(0,weight=1)
         self.IPv4_toggle_frame.rowconfigure(1,weight=8)
         
-        self.IPv4_toggle = Button(self.IPv4_toggle_frame, image=self.nothing, highlightthickness=0,activebackground='black', bg='black',bd=0, border=None, borderwidth=0, command=self.change_ipv4_mode)
+        # self.IPv4_toggle = Button(self.IPv4_toggle_frame, image=self.nothing, highlightthickness=0,activebackground='black', bg='black',bd=0, border=None, borderwidth=0, command=self.change_ipv4_mode)
         # self.IPv4_setting_label = Label(self.IPv4_toggle_frame, text='설정하기', font=('Arial',20), fg='white', bg='black')
 
         # self.IPv4_setting_label.grid(row=0, column=0, sticky='NEWS')
@@ -125,11 +128,11 @@ class EthernetScreen(ttk.Frame):
         print(self.connection_status)
         if self.connection_status == 'Auto':
             self.IPv4_label.config(text='')
-            self.IPv4_toggle.config(image=self.nothing, command=self.ipv4_none)
+            # self.IPv4_toggle.config(image=self.nothing, command=self.ipv4_none)
             print('Auto')
         elif self.connection_status == 'Manual':
-            self.IPv4_label.config(text='IPv4')
-            self.IPv4_toggle.config(image=self.off, command= self.change_ipv4_mode)
+            self.IPv4_label.config(text='IPv4 설정')
+            # self.IPv4_toggle.config(image=self.off, command= self.change_ipv4_mode)
             print('Manual')
     
     def get_image(self, frame, path, width, height, row, column,sticky, command=None):

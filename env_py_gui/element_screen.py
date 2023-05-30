@@ -170,9 +170,13 @@ class Element(ttk.Frame):
         ###########################################################################
         ######################## 이미지 변경을 위해 고쳐야함 ########################
         ###########################################################################
+        print('sensor_name : ', end='')
+        print(self.sensor_name)
         image_path = '/home/orangepi/env_sensor/env_py_gui/img/sensor/' + self.sensor_name + '.png'
         # image_name = '/home/orangepi/env_sensor/env_py_gui/img/sensor/' + controller.sensor_name + '.png'
         # self.get_image(sensor_description_part, image_name, 80, 80, 0, 0, 'NEWS', rowspan=2)
+        # if self.sensor_name == 'NO2':
+        #     image_path = '/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-NO2.png'
         sensor_img = Image.open(image_path)
         resized_img = sensor_img.resize((80, 80), Image.ANTIALIAS)
         sensor_image = ImageTk.PhotoImage(resized_img)

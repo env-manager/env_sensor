@@ -561,7 +561,7 @@ class Home(ttk.Frame):
         pm25_img_label.grid(row=0, column=0)
         pm25_img_label.bind("<Button-1>", lambda event: event_func(event, sensor_name='PM25', sensor_value=self.controller.PM25))
 
-        pm25_label = Label(pm25_part, text='PM1.0, 2.5', bg='black', fg='white', font=('Arial', 12))
+        pm25_label = Label(pm25_part, text='PM1.0 , 2.5', bg='black', fg='white', font=('Arial', 12))
         pm25_label.grid(row=4, column=0, sticky='NEWS')
         pm25_label.bind("<Button-1>", lambda event: event_func(event, sensor_name='PM25', sensor_value=self.controller.PM25))
 ###########################################################################################################

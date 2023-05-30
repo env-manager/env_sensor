@@ -108,7 +108,7 @@ class EnvSensor(tk.Tk):
         ############################################################################################################################################
         
         # For Element
-        self.element_frame = Element(container, self, lambda: self.show_frame(Home), sensor=self.sensor_name, sensor_range = self.selected_sensor_range)      # just for sample TVOC
+        self.element_frame = Element(container, self, lambda: self.show_frame(Home), sensor=self.sensor_name, sensor_range = self.selected_sensor_range)
         self.element_frame.grid(row=0, column=0, sticky="NESW")
         ############################################################################################################################################
         
@@ -164,8 +164,11 @@ class EnvSensor(tk.Tk):
 
     
     def show_frame(self, container):
+        print('test1')
         frame = self.frames[container]
+        print('test2')
         frame.tkraise()
+        print('test3')
     
     def show_element_frame(self, container):
         # Element UI고치느라 주석

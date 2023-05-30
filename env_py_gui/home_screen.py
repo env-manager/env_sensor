@@ -91,8 +91,8 @@ class Home(ttk.Frame):
         status_part.columnconfigure(0, weight=10)
         status_part.columnconfigure(1, weight=1)
         status_part.columnconfigure(2, weight=1)
-        status_part.columnconfigure(3, weight=1)
-        status_part.columnconfigure(4, weight=1)                        # For MQTT send - gonna be erased soon
+        # status_part.columnconfigure(3, weight=1)
+        # status_part.columnconfigure(4, weight=1)                        # For MQTT send - gonna be erased soon
         status_part.rowconfigure(0, weight=1)
         
         
@@ -258,29 +258,29 @@ class Home(ttk.Frame):
         
 
         # wifi_image = tk.PhotoImage(file='/home/orangepi/env_sensor/env_py_gui/img/wifi/wifi.png')
-        quit_image = tk.PhotoImage(file='/home/orangepi/env_sensor/env_py_gui/img/parts/back_button.png')
+        # quit_image = tk.PhotoImage(file='/home/orangepi/env_sensor/env_py_gui/img/parts/back_button.png')
         
         
         # Temporary Quit Button for DEBUG!!!!!!!!!!
-        quit_button = tk.Button(status_part, image=quit_image, command=controller.destroy, height=20, width=20)
-        quit_button.image = quit_image                  # to keep a ref
-        quit_button.grid(column=1,row=0)
+        # quit_button = tk.Button(status_part, image=quit_image, command=controller.destroy, height=20, width=20)
+        # quit_button.image = quit_image                  # to keep a ref
+        # quit_button.grid(column=1,row=0)
 
         self.wifi_button = tk.Button(status_part, image=self.photo_wifi_connection_status,highlightthickness=0, command=show_wifi, height=20, width=20, bg='black', bd=0, borderwidth=0)
         self.wifi_button.image = self.photo_wifi_connection_status                  # to keep a ref
-        self.wifi_button.grid(column=2,row=0)
+        self.wifi_button.grid(column=1,row=0)
         
         
         # Info Screen
         # info_button = tk.Button(status_part, image=info_image, command=show_info, height=20, width=20)
         # info_button.image = info_image                  # to keep a ref
         # info_button.grid(column=3,row=0)
-        info_button = self.get_image_instance(status_part, '/home/orangepi/env_sensor/env_py_gui/img/wifi/info.png', 20, 20, 0, 3, 'NEWS', command=show_info)
+        info_button = self.get_image_instance(status_part, '/home/orangepi/env_sensor/env_py_gui/img/wifi/info.png', 20, 20, 0, 2, 'NEWS', command=show_info)
 
         
         # Temporary MQTT Button for DEBUG!!!!!!!!!!
-        mqtt_button = tk.Button(status_part,bg='red',image=quit_image,highlightthickness=0, command=self.send_mqtt_data, height=20, width=20, bd=0, borderwidth=0)
-        mqtt_button.grid(column=4,row=0)
+        # mqtt_button = tk.Button(status_part,bg='red',image=quit_image,highlightthickness=0, command=self.send_mqtt_data, height=20, width=20, bd=0, borderwidth=0)
+        # mqtt_button.grid(column=4,row=0)
         
         
         # temperature & humidity

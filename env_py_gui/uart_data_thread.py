@@ -95,20 +95,20 @@ class UartDataThread(Thread):
                 # print('여기를 들른다.')
                 pass
                 
-            else:
+            else:                                                                                       # serial 값이 들어올 때
                 # print('터치가 되든 안되든 이렇게')
                 
                 serial_list = self.serial_str.split(',')
                 if self.view:
                     print(serial_list)
                 # print(len(serial_list))
-                if len(serial_list) == 19:
+                if len(serial_list) == 19:                                                               # 올바른 serial 값이 들어올 때
                     self.x, self.y = float(serial_list[0]), float(serial_list[1])
 
                     if self.x != 0 and self.y != 0:       # 터치가 되어질때 => 이떄는 x, y가 0, 0이 들어오고
                         self.x = int((self.x-180)/3740*799)
                         self.y = int((self.y-400)/3410*479)     # x, y를 맞는 좌표로 바꿔준다.
-                        self.two_pos = [[self.last_x, self.last_y],[self.x, self.y]]
+                        self.two_pos = [[self.last_x, self.last_y],[self.x, self.y]]                # [[,],[,]]
                         self.last_x = self.x
                         self.last_y = self.y
                         pyautogui.moveTo(self.x, self.y)

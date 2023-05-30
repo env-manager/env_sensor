@@ -98,7 +98,7 @@ class EthernetScreen(ttk.Frame):
         self.IPv4_toggle = Button(self.IPv4_toggle_frame, image=self.nothing, highlightthickness=0,activebackground='black', bg='black',bd=0, border=None, borderwidth=0, command=self.change_ipv4_mode)
         # self.IPv4_setting_label = Label(self.IPv4_toggle_frame, text='설정하기', font=('Arial',20), fg='white', bg='black')
 
-        self.IPv4_setting_label.grid(row=0, column=0, sticky='NEWS')
+        # self.IPv4_setting_label.grid(row=0, column=0, sticky='NEWS')
         
 ####################################################################################################################
         # IPv6_label = Label(main_part, text='IPv6', font=('Arial', 23), fg='white', bg='black')

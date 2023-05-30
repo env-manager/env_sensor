@@ -75,7 +75,7 @@ class InfoScreen(ttk.Frame):
         value_part.rowconfigure(1, weight=4)    
         value_part.rowconfigure(2, weight=4)
         value_part.rowconfigure(3, weight=4)
-        value_part.rowconfigure(4, weight=3)
+        # value_part.rowconfigure(4, weight=3)
         
 
         ## value_part
@@ -96,9 +96,9 @@ class InfoScreen(ttk.Frame):
             self.firmware_update()
             
         
-        firmware_update_button = Label(value_part, text='개발용 펌웨어 업데이트',font=('Arial',25), fg='white', bg='black')
-        firmware_update_button.grid(row=4, column=0, padx=30, sticky='NEWS')
-        firmware_update_button.bind("<Button-1>", fw_upd_click)
+        # firmware_update_button = Label(value_part, text='개발용 펌웨어 업데이트',font=('Arial',25), fg='white', bg='black')
+        # firmware_update_button.grid(row=4, column=0, padx=30, sticky='NEWS')
+        # firmware_update_button.bind("<Button-1>", fw_upd_click)
         
     def execute_cmd(self, cmd):
         os.system(cmd)

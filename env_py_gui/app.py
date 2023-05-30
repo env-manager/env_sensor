@@ -21,7 +21,7 @@ sys.path.append('/home/orangepi/env_sensor/info')
 # DEVICE_NUM -> 1               # 1 <= Device 30000000    device_info[0]
 from device_number import DEVICE_NUM
 
-FULL_SCREEN = False             # (True/False) - (Full Screen/Fixed Size Screen)
+FULL_SCREEN = True             # (True/False) - (Full Screen/Fixed Size Screen)
 UART_DATA_VIEW = False
 PRIMARY_COLOR = "#2e3f4f"
 

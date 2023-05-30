@@ -164,11 +164,8 @@ class EnvSensor(tk.Tk):
 
     
     def show_frame(self, container):
-        print('test1')
         frame = self.frames[container]
-        print('test2')
         frame.tkraise()
-        print('test3')
     
     def show_element_frame(self, container):
         # Element UI고치느라 주석

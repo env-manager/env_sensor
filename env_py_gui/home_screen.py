@@ -773,6 +773,7 @@ class Home(ttk.Frame):
         self.time_label.after(1000, self.time_update)
     
     def lan_connection_update(self):
+        print('############# lan connection update START #####################')
         connection_state = get_current_connection_state()                       # [ethernet, wlan] <- False(미연결) & True(연결)
         # print(connection_state)                                                 # ex) [False, True] -> wlan 연결 [True, True] -> wlan무시 ethernet연결
         if connection_state[0] == True:         # ethernet mode
@@ -812,6 +813,8 @@ class Home(ttk.Frame):
                         self.wifi_button.config(image=self.photo_non_connection_status, command=self.show_wifi)
                         self.wifi_button.image = self.photo_non_connection_status
                 self.pre_lan_state = 'none'
+        print('############# lan connection update END #####################')
+        
         # print(self.lan_state)
         self.after(3000, self.lan_connection_update)
         
@@ -846,7 +849,7 @@ class Home(ttk.Frame):
 
     
     def send_mqtt_data(self):
-
+        print('####################### send mqtt data START ################################')
         ct = datetime.now()
         ts = ct.timestamp()
         ts = math.floor(ts*1000)
@@ -876,8 +879,11 @@ class Home(ttk.Frame):
         print(sensor_data)
         try:
                 self.client.publish('v1/devices/me/telemetry', json.dumps(sensor_data), 1)
+                print('보냈다')
         except:
                 print('네트워크 연결 x')
+        print('####################### send mqtt data END ################################')
+        
         self.after(300000, self.send_mqtt_data)
         
     def get_all_data(self):

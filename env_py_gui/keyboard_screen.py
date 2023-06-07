@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 
-class KeyboardSreen(ttk.Frame):
+class KeyboardScreen(ttk.Frame):
     def __init__(self, parent, controller, my_entry, show_wifi_detail):
         super().__init__(parent)
         self.controller = controller
@@ -309,8 +309,10 @@ class KeyboardSreen(ttk.Frame):
         # self.Btn(fifth_line_frame, 0, 1, 'space bar')
         # self.Btn(fifth_line_frame, 0, 2, 'Connect')
         
-        self.Btn_fif_empty = Label(fifth_line_frame, bg='black')
-        self.Btn_fif_empty.grid(row=0, column=0, sticky='NEWS')
+        # self.Btn_fif_empty = Label(fifth_line_frame, bg='black')
+        # self.Btn_fif_empty.grid(row=0, column=0, sticky='NEWS')
+        self.Btn_back = Button(fifth_line_frame, text='Back', font=('Arial', 10), bg='black', fg='white',command=show_wifi_detail)
+        self.Btn_back.grid(row=0, column=0, sticky='NEWS')
         self.Btn_spacebar = Button(fifth_line_frame, text='space bar', font=('Arial',10), bg='black', fg='white', command=self.spacebar_click)
         self.Btn_spacebar.grid(row=0, column=1, sticky='NEWS')
         self.Btn_connect = Button(fifth_line_frame, text='Connect', font=('Arial', 15), bg='black', fg='white', command= self.connect_func)

@@ -389,7 +389,6 @@ class WifiScreen(ttk.Frame):
     # 무조건 이걸로 바꿔야해 -> 비번이 없는 것을 알기 위해서 다른 방법이 없다...
     # 후........ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
     def new_ver_wifi_func(self):
-        print('############# new_ver_wifi_func START #####################')
 
         # self.current_wifi_list = wf.get_current_wifi_info() # ssid & signal strength
         # 생각해보니 wf.wifi_search_new_ver 안에서 현재 연결된 와이파이를 뺴준다.
@@ -424,7 +423,6 @@ class WifiScreen(ttk.Frame):
             self.second_label.config(text=self.available_wifi_list[1][0])
             self.third_label.config(text=self.available_wifi_list[2][0])
     
-        print('############# new_ver_wifi_func END #####################')
 
     
     
@@ -466,14 +464,8 @@ class WifiScreen(ttk.Frame):
     
     
     def get_current_wifi(self):
-        print('############# get current wifi START #####################')
         
         self.current_wifi_list = wf.get_current_wifi_info()
-        # print(self.current_wifi_list)
-        
-        # print('######## Test Start ########')
-        # print(wf.wifi_search_new_ver())
-        # print('######## Test End ########')
         
         
         if self.current_wifi_list == None:
@@ -496,7 +488,6 @@ class WifiScreen(ttk.Frame):
         # self.current_wifi_image.config()
         # print('self.current wifi list')
         # print(self.current_wifi_list)
-        print('############# get current wifi END #####################')
         
         self.current_wifi_label.after(3000, self.get_current_wifi)
         

@@ -6,7 +6,7 @@ from wifi_screen import WifiScreen
 from wifi_connection_screen import WifiConnectionScreen
 from wifi_detail_screen import WifiDetailScreen
 from info_screen import InfoScreen
-from keyboard_screen import KeyboardSreen
+from keyboard_screen import KeyboardScreen
 from ethernet_screen import EthernetScreen
 from mac_address import get_mac_address
 from ipv4_screen import Ipv4Screen
@@ -28,9 +28,9 @@ PRIMARY_COLOR = "#2e3f4f"
 class EnvSensor(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        print('############## test ##############')
-        print(DEVICE_NUM)         # 잘 나오는 것 확인했다.
-        print('- test -')
+        # print('############## test ##############')
+        # print(DEVICE_NUM)         # 잘 나오는 것 확인했다.
+        # print('- test -')
 
         self.device_number = DEVICE_NUM
         self.uart_data_view = UART_DATA_VIEW
@@ -123,7 +123,7 @@ class EnvSensor(tk.Tk):
         ############################################################################################################################################
 
         # For Wifi Detail Screen
-        self.wifi_detail_frame = WifiDetailScreen(container, self, lambda:self.show_frame(WifiScreen), lambda: self.show_frame(KeyboardSreen))
+        self.wifi_detail_frame = WifiDetailScreen(container, self, lambda:self.show_frame(WifiScreen), lambda: self.show_frame(KeyboardScreen))
         self.wifi_detail_frame.grid(row=0, column=0, sticky='NEWS')
         ############################################################################################################################################
         
@@ -138,7 +138,7 @@ class EnvSensor(tk.Tk):
         ############################################################################################################################################
         
         # For Keyboard Screen
-        self.keyboard_frame = KeyboardSreen(container, self, self.wifi_detail_frame.password_entry, lambda:self.show_frame(WifiDetailScreen))
+        self.keyboard_frame = KeyboardScreen(container, self, self.wifi_detail_frame.password_entry, lambda:self.show_frame(WifiDetailScreen))
         self.keyboard_frame.grid(row=0, column=0, sticky='NEWS')
         ############################################################################################################################################
 
@@ -156,7 +156,7 @@ class EnvSensor(tk.Tk):
         self.frames[WifiDetailScreen] = self.wifi_detail_frame
         self.frames[InfoScreen] = self.info_frame
         self.frames[EthernetScreen] = self.ethernet_frame
-        self.frames[KeyboardSreen] = self.keyboard_frame
+        self.frames[KeyboardScreen] = self.keyboard_frame
         self.frames[Ipv4Screen] = self.ipv4_frame
         
         # First Screenu

@@ -369,6 +369,8 @@ class Element(ttk.Frame):
         self.last_range_label.config(text=last_range)
         if sensor_name == 'TVOC':
             text = str(self.controller.TVOC) + ' [' + SENSOR_DICT[sensor_name][6] + ']'
+            print('################## Test 1 ##################')
+            print(self.controller.TVOC)
             self.measurement_label.config(text=text)
             
 

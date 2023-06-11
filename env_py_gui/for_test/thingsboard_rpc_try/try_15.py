@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 THINGSBOARD_HOST = "210.117.143.37"
 PORT = 10061
 
-# 접근 토큰 설정
+# 임의 토큰
 ACCESS_TOKEN = '51ZFhNEWFXLi4pW758Gy'
 
 import json
@@ -58,6 +58,7 @@ def on_message(client, userdata, msg):
     # print(type(payload))
 #     topic :  v1/devices/me/rpc/request/9
 # payload :  b'{"method":"execCmd","params":{"RESET":"ON"}}'
+
     # 수신한 메시지의 페이로드 확인
     # 원하는 RPC 명령을 처리하는 로직을 작성하세요.
     # print(msg.topic.startswith("v1/devices/me/rpc/request/"))

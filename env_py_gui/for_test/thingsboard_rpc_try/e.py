@@ -29,12 +29,35 @@ client.on_publish = on_publish
 
 # ThingsBoard에 연결합니다.
 client.connect(THINGSBOARD_HOST, PORT, keepalive=60)
-
+from datetime import datetime
+import math
+ct = datetime.now()
+ts = ct.timestamp()
+ts = math.floor(ts*1000)
 # 보낼 데이터를 JSON 형식으로 작성합니다.
 data = {
-    "temperature": 25.6,
-    "humidity": 60.2
-}
+        'ts': ts,
+        'values':{
+                "S_0_0":1.1,
+                "S_0_1":1.1,
+                "S_0_2":1.1,
+                "S_0_3":1.1,
+                "S_0_4":1.1,
+                "S_0_5":1.1,
+                "S_0_6":1.1,
+                "S_0_7":1.1,
+                "S_0_8":1.1,
+                "S_0_9":1.1,
+                "S_0_10":1.1,
+                "S_0_11":1.1,
+                "S_0_12":1.1,
+                "S_0_13":1.1,
+                "S_0_14":1.1,
+                "S_0_15":1.1,
+                "S_0_16":1.1,
+                "ver":'1.0.0',
+                }
+        }
 payload = str(data)
 
 # 토픽에 데이터를 발행합니다.

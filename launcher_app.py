@@ -23,6 +23,7 @@ if __name__ == '__main__':
     app.wifi_frame.new_ver_wifi_func()
     app.wifi_frame.get_current_wifi()
     app.home_frame.send_mqtt_data()
+    app.element_frame.change_image()
 
     app.geometry("800x480")
     app.attributes('-fullscreen', FULL_SCREEN)

@@ -339,7 +339,22 @@ class Element(ttk.Frame):
 
     def change_image(self,sensor_name):
         # self.controller
-        self.title_label.config(text=sensor_name)
+        processed_sensor_name = ''
+        if sensor_name=='CO2':
+            processed_sensor_name = 'CO₂'
+        elif sensor_name == 'NO2':
+            processed_sensor_name ='NO₂'
+        elif sensor_name == 'CH2O':
+            processed_sensor_name = 'CH₂O'
+        elif sensor_name == 'NH3':
+            processed_sensor_name = 'NH₃'
+        elif sensor_name == 'H2S':
+            processed_sensor_name = 'H₂S'
+        elif sensor_name == 'O3':
+            processed_sensor_name = 'O₃'
+        else:
+            processed_sensor_name = sensor_name
+        self.title_label.config(text=processed_sensor_name)
         last_range = SENSOR_DICT[sensor_name][4]
         first_range = last_range/3
         first_range = "{:.2f}".format(first_range)
@@ -600,3 +615,4 @@ class Element(ttk.Frame):
         else:
             print('something error in element_value')
         
+        self.after(3000, self.change_image)

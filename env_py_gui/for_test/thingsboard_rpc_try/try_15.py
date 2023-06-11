@@ -7,27 +7,60 @@ PORT = 10061
 # 접근 토큰 설정
 ACCESS_TOKEN = '51ZFhNEWFXLi4pW758Gy'
 
+import json
 
-# d41e2660-f0a1-11ed-97fe-477ec4188e5d
-# 클라이언트 ID 설정
+# 임의로 잡아둠
 client_id = 'd41e2660-f0a1-11ed-97fe-477ec4188e5d'
 
 # MQTT 클라이언트 생성
 client = mqtt.Client(client_id=client_id)
 
-# 접속 콜백 함수 정의
+# connection call back <- 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    # 연결이 성공하면 구독 요청
+    # access Good -> subscribe
     client.subscribe("v1/devices/me/rpc/request/+")
 
 # 메시지 수신 콜백 함수 정의
 def on_message(client, userdata, msg):
-    print("Received message: " + msg.topic + " " + str(msg.payload))
+    # print("Received message: " + msg.topic + " " + str(msg.payload))
 
+    print('topic : ', msg.topic)
+    print('payload : ', str(msg.payload))
+    
+    decode_code = msg.payload.decode('utf-8')
+    
+        
+    dict_data = json.loads(decode_code)
+    # print(dict_data)
+    try:
+        if dict_data['method'] == 'setValue':           # 센서 보고 주기 설정
+            # print('method is setValue')
+            # print('params (type) : ', type(dict_data['params']))
+            # print('params : ', dict_data['params'])
+            print(dict_data['params']['TIME'])
+            # if dict_data['params'].key == 'Time':
+            #     print(dict_data['params']['Time'])
+            
+        elif dict_data['method'] == 'execCmd':
+            # print('method is execCmd')
+            # print('params (type) : ', type(dict_data['params']))
+            # print('params : ', dict_data['params'])
+            # if dict_data['params'] ==
+            print(dict_data['params']['UPDATE'])
+            
+        else:
+            pass
+    except:
+        pass
+    
+    
+    # print(type(payload))
+#     topic :  v1/devices/me/rpc/request/9
+# payload :  b'{"method":"execCmd","params":{"RESET":"ON"}}'
     # 수신한 메시지의 페이로드 확인
     # 원하는 RPC 명령을 처리하는 로직을 작성하세요.
-    print(msg.topic.startswith("v1/devices/me/rpc/request/"))
+    # print(msg.topic.startswith("v1/devices/me/rpc/request/"))
     if msg.topic.startswith("v1/devices/me/rpc/request/"):
         # RPC 메시지의 식별자 추출
         rpc_id = msg.topic[len("v1/devices/me/rpc/request/"):]

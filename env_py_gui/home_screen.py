@@ -1116,7 +1116,7 @@ class Home(ttk.Frame):
                 self.pre_humidity_level = self.humidity_level
                 # print('pre temperature level : '+ str(self.pre_temperature_level))
                 # print('pre humidity level : ' + str(self.pre_humidity_level))
-        Element.change_image()
+        Element.change_image(self.controller.sensor_name)
         self.after(2000, self.get_all_data)
 
     def change_text_color(self,level, label):

@@ -171,7 +171,7 @@ class EnvSensor(tk.Tk):
         # Element UI고치느라 주석
         
         # self.element_frame.change_image(self.sensor_name)  
-        self.element_frame.check_value(self.sensor_name)
+        self.element_frame.check_value()
         frame = self.frames[container]
         frame.tkraise()
     

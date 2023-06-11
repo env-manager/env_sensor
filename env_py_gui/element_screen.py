@@ -528,8 +528,8 @@ class Element(ttk.Frame):
         # self.after(3000, self.change_image)
         # self.after(3000, self.change_to_level)
         # self.after(3000, self.change_gauge)
-    def check_value(self, sensor_name):
-        self.change_image(sensor_name)
+    def check_value(self):
+        self.change_image(self.controller.sensor_name)
         self.after(3000, self.check_value)
         
     def change_to_level(self, level):

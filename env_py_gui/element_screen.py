@@ -524,11 +524,13 @@ class Element(ttk.Frame):
         img = PhotoImage(file=SENSOR_DICT[sensor_name][1])
         self.img_label.configure(image=img)
         self.img_label.image = img
-        
-        self.after(3000, self.change_image, args=self.controller.sensor_name)
+        self.check_value(sensor_name)
+        # self.after(3000, self.change_image)
         # self.after(3000, self.change_to_level)
         # self.after(3000, self.change_gauge)
-        
+    def check_value(self, sensor_name):
+        self.change_image(sensor_name)
+        self.after(3000, self.check_value)
         
     def change_to_level(self, level):
         if level == 1:

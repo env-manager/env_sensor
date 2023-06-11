@@ -13,6 +13,9 @@ import math
 from sensor_list import SENSOR_DICT
 from device_list import device_info
 from VERSION_INFO import CURRENT_VERSION
+from element_screen import Element
+
+
 THINGSBOARD_HOST = "210.117.143.37"
 # ACCESS_TOKEN='51ZFhNEWFXLi4pW758Gy'
 port = 10061
@@ -1013,12 +1016,7 @@ class Home(ttk.Frame):
                 self.change_text_color(self.controller.SOUND_level, self.Sound_label)
                 self.change_text_color(self.controller.Rn_level, self.Rn_label)
                 self.change_text_color(self.controller.O3_level, self.O3_label)
-###############################################################################################################
-###############################################################################################################
-###############################################################################################################
-###############################################################################################################
-###############################################################################################################
-                
+
                 # self.temperature
                 # 0~100'C까지
                 # if temperature < 0:
@@ -1118,8 +1116,7 @@ class Home(ttk.Frame):
                 self.pre_humidity_level = self.humidity_level
                 # print('pre temperature level : '+ str(self.pre_temperature_level))
                 # print('pre humidity level : ' + str(self.pre_humidity_level))
-
-        
+        Element.change_image()
         self.after(2000, self.get_all_data)
 
     def change_text_color(self,level, label):

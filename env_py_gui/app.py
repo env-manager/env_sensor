@@ -160,7 +160,7 @@ class EnvSensor(tk.Tk):
         self.frames[Ipv4Screen] = self.ipv4_frame
         
         # First Screenu
-        self.element_frame.change_image(self.sensor_name)
+        # self.element_frame.change_image(self.sensor_name)
         self.show_frame(Home)
     
     def show_frame(self, container):
@@ -175,7 +175,6 @@ class EnvSensor(tk.Tk):
         frame.tkraise()
     
 
-# app.element_frame.change_image()
 
 
 

@@ -480,8 +480,9 @@ class Home(ttk.Frame):
         #     print(sensor_value)
         #     print('Range : ', end='')
         #     print(SENSOR_DICT[sensor_name][2:5])
-            controller.sensor_name = sensor_name
-            Element.change_image(sensor_name=sensor_name)
+        #     controller.sensor_name = sensor_name
+        # self.element_frame            <- controller로 고쳐서 뭘 해야하는데
+            controller.element_frame.change_image(Element, sensor_name=sensor_name)
             controller.selected_sensor_range = SENSOR_DICT[sensor_name][2:5]
             show_element()
             

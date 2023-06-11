@@ -292,7 +292,8 @@ class Home(ttk.Frame):
         # self.set_image(temp_hum_part, '/home/orangepi/env_sensor/env_py_gui/img/temperature/temp_img.png', row=0, column=0, height=40)
         self.get_image(temp_hum_part,'/home/orangepi/env_sensor/env_py_gui/img/temperature/temp_img.png', 35, 35, 0, 0, 'NEWS')
         # self.set_label(temp_hum_part, self.temperature, row=0, column=1)
-        self.temp_label = Label(temp_hum_part, text=self.temperature, bg='black', fg='white', font=('Arial', 15))
+        temp_text = str(self.temperature) + '°C'
+        self.temp_label = Label(temp_hum_part, text=temp_text, bg='black', fg='white', font=('Arial', 15))
         self.temp_label.grid(row=0, column=1, sticky='NEWS')
         # self.set_image(temp_hum_part, '/home/orangepi/env_sensor/env_py_gui/img/temperature/temp5.png', row=0, column=2, height=20)
         self.temp_gauge = self.get_image_instance(temp_hum_part,'/home/orangepi/env_sensor/env_py_gui/img/temperature/temp5.png', 240, 35, 0, 2, 'NEWS')
@@ -302,7 +303,8 @@ class Home(ttk.Frame):
         # self.set_image(temp_hum_part, '/home/orangepi/env_sensor/env_py_gui/img/humidity/humidity_img.png', row=0, column=3, height=40)
         self.get_image(temp_hum_part,'/home/orangepi/env_sensor/env_py_gui/img/humidity/humidity_img.png', 35, 35, 0, 3, 'NEWS')
         # self.set_label(temp_hum_part, '53%', row=0, column=4)
-        self.humidity_label = Label(temp_hum_part, text=self.humidity, bg='black', fg='white', font=('Arial', 15))
+        hum_text = str(self.humidity) + '%'
+        self.humidity_label = Label(temp_hum_part, text=hum_text, bg='black', fg='white', font=('Arial', 15))
         self.humidity_label.grid(row=0, column=4, sticky='NEWS')
         # self.set_image(temp_hum_part, '/home/orangepi/env_sensor/env_py_gui/img/humidity/humidity5.png', row=0, column=5, height=20)
         self.hum_gauge = self.get_image_instance(temp_hum_part,'/home/orangepi/env_sensor/env_py_gui/img/humidity/humidity5.png', 240, 35, 0, 5, 'NEWS')
@@ -901,13 +903,13 @@ class Home(ttk.Frame):
                 if self.temperature == -100:
                         self.temp_label.config(text='...')
                 else:
-                        temperature_2f = "{:.2f}".format(self.temperature)
+                        temperature_2f = "{:.2f}°C".format(self.temperature)
                         self.temp_label.config(text=temperature_2f)
                 self.humidity = float(self.controller.humidity)
                 if self.humidity < 0:
                         self.humidity_label.config(text='...')
                 else:
-                        humidity_2f = "{:.2f}".format(self.humidity)
+                        humidity_2f = "{:.2f}%".format(self.humidity)
                         self.humidity_label.config(text=humidity_2f)
                 # 밑에 마저 해야한다.
                 self.TVOC = self.controller.TVOC

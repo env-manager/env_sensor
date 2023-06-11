@@ -523,7 +523,7 @@ class Element(ttk.Frame):
         self.img_label.configure(image=img)
         self.img_label.image = img
         
-        # self.after(3000, self.change_image)
+        self.after(3000, self.change_image)
         # self.after(3000, self.change_to_level)
         # self.after(3000, self.change_gauge)
         

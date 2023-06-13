@@ -34,7 +34,7 @@ class EnvSensor(tk.Tk):
 
         self.device_number = DEVICE_NUM
         self.uart_data_view = UART_DATA_VIEW
-        self.send_term = 5
+        self.send_term = 1
         self.TVOC = tk.DoubleVar(value=0)
         self.CO2 = tk.DoubleVar(value=0)
         self.PM1 = tk.DoubleVar(value=0)

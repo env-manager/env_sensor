@@ -38,16 +38,20 @@ def on_message(client, userdata, msg):
             # print('method is setValue')
             # print('params (type) : ', type(dict_data['params']))
             # print('params : ', dict_data['params'])
-            print(dict_data['params']['TIME'])
+            # print(dict_data['params']['TIME'])
             # if dict_data['params'].key == 'Time':
             #     print(dict_data['params']['Time'])
+            if dict_data['params']['TIME'] != None:
+                print(dict_data['params']['TIME'])
             
         elif dict_data['method'] == 'execCmd':
             # print('method is execCmd')
             # print('params (type) : ', type(dict_data['params']))
             # print('params : ', dict_data['params'])
             # if dict_data['params'] ==
-            print(dict_data['params']['UPDATE'])
+            # print(dict_data['params']['UPDATE'])
+            if dict_data['params']['UPDATE'] != None:
+                print('update')
             
         else:
             pass

@@ -17,6 +17,11 @@ from time import sleep
 ######################################################
 ######################## temp ########################
 import paho.mqtt.client as mqtt
+
+######################################################
+# sangsang temp account test
+
+
 # ThingsBoard 호스트와 포트 설정
 THINGSBOARD_HOST = "210.117.143.37"
 PORT = 10061
@@ -36,7 +41,7 @@ if __name__ == '__main__':
     
     # connection call back <- 
     def on_connect(client, userdata, flags, rc):
-        print("Connected with result code " + str(rc))
+        # print("Connected with result code " + str(rc))
         # access Good -> subscribe
         client.subscribe("v1/devices/me/rpc/request/+")
 
@@ -44,8 +49,8 @@ if __name__ == '__main__':
     def on_message(client, userdata, msg):
         # print("Received message: " + msg.topic + " " + str(msg.payload))
 
-        print('topic : ', msg.topic)
-        print('payload : ', str(msg.payload))
+        # print('topic : ', msg.topic)
+        # print('payload : ', str(msg.payload))
         
         decode_code = msg.payload.decode('utf-8')
         
@@ -66,7 +71,21 @@ if __name__ == '__main__':
                 # print('params (type) : ', type(dict_data['params']))
                 # print('params : ', dict_data['params'])
                 # if dict_data['params'] ==
-                print(dict_data['params']['UPDATE'])
+                # print(dict_data['params']['UPDATE'])
+
+                #################################################### UPDATE ####################################################
+                if dict_data['params']['UPDATE'] != None:
+
+                    execute_cmd('rm -r /home/orangepi/env_sensor/env_py_gui')
+                    repo_url = 'https://github.com/env-manager/env_py_gui.git'
+                    destination_folder = '/home/orangepi/env_sensor/env_py_gui'
+                    try:
+                        subprocess.check_output(["git", "clone", repo_url, destination_folder], cwd='/tmp')
+                        print('Process well done')
+                        sleep(5)
+                        execute_cmd('reboot')
+                    except subprocess.CalledProcessError as e:
+                        print(e)
                 
             else:
                 pass
@@ -102,17 +121,17 @@ if __name__ == '__main__':
     
     thingsboard_rpc = ''
     
-    if thingsboard_rpc == 'update':
-        execute_cmd('rm -r /home/orangepi/env_sensor/env_py_gui')
-        repo_url = 'https://github.com/env-manager/env_py_gui.git'
-        destination_folder = '/home/orangepi/env_sensor/env_py_gui'
-        try:
-            subprocess.check_output(["git", "clone", repo_url, destination_folder], cwd='/tmp')
-            print('Process well done')
-            sleep(5)
-            execute_cmd('reboot')
-        except subprocess.CalledProcessError as e:
-            print(e)
+    # if thingsboard_rpc == 'update':
+    #     execute_cmd('rm -r /home/orangepi/env_sensor/env_py_gui')
+    #     repo_url = 'https://github.com/env-manager/env_py_gui.git'
+    #     destination_folder = '/home/orangepi/env_sensor/env_py_gui'
+    #     try:
+    #         subprocess.check_output(["git", "clone", repo_url, destination_folder], cwd='/tmp')
+    #         print('Process well done')
+    #         sleep(5)
+    #         execute_cmd('reboot')
+    #     except subprocess.CalledProcessError as e:
+    #         print(e)
     
     
     

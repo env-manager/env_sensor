@@ -79,5 +79,18 @@ client.on_message = on_message
 client.username_pw_set(ACCESS_TOKEN)
 client.connect(THINGSBOARD_HOST, PORT, 60)
 
+
+from time import sleep
 # 메시지 수신 대기
-client.loop_forever()
+# client.loop_forever()
+import threading
+mqtt_thread = threading.Thread(target=client.loop_forever)
+mqtt_thread.start()
+
+i=0
+while 1:
+    i += 1
+    print(i)
+    sleep(1)
+
+mqtt_thread.join()

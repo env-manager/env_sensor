@@ -29,7 +29,7 @@ SENSOR_DICT = {
     'CO':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO.png', 2, 9, 15,10, 'ppm'],
     'NO2':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-NO2.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/NO2.png', 0.03, 0.05, 0.2,0.05, 'ppm'],
     'H2S':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-H2S.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/H2S.png', 0.005, 0.02, 0.3,0.005, 'ppm'],
-    'LIGHT':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-LIGHT.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/LIGHT.png', 3, 5, 10, 10, 'Lx'],
+    'LIGHT':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-LIGHT.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/LIGHT.png', 3, 5, 10, 10, 'lx'],
     'SOUND':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-Sound.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/Sound.png', 35, 40, 60,60, 'dB'],
     'RN':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-Rn.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/Rn.png', 74, 200, 300,200, 'Bq/m3'],  # unit 설정 필수 일단 pCi/l
     'O3':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-O3.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/O3.png', 0.03, 0.09, 0.15,0.02, 'ppm'],

@@ -34,6 +34,7 @@ import math
 ct = datetime.now()
 ts = ct.timestamp()
 ts = math.floor(ts*1000)
+
 # 보낼 데이터를 JSON 형식으로 작성합니다.
 data = {
         'ts': ts,

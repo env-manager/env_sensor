@@ -67,6 +67,8 @@ if __name__ == '__main__':
                 #     print(dict_data['params']['Time'])
                 if dict_data['params']['TIME'] != None:
                     print(dict_data['params']['TIME'])
+                    app.send_term = int(dict_data['params']['TIME'])
+                    
                 
             elif dict_data['method'] == 'execCmd':
                 # print('method is execCmd')

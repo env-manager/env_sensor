@@ -47,7 +47,7 @@ class Home(ttk.Frame):
         self.show_ethernet = show_ethernet
         self.info_device = device_info[self.controller.device_number-1]
         self.thingsboard_connection_state = False
-        
+        self.pre_term = self.controller.send_term
         self.TVOC = 0.0
         # self.TVOC = tk.StringVar(value=123)
         self.CO2 = 0.0
@@ -886,8 +886,16 @@ class Home(ttk.Frame):
                 print('보냈다')
         except:
                 print('네트워크 연결 x')
+        if self.controller.send_term == self.pre_term:
+                # print('같다')
+                print('MQTT send term : ', self.pre_term, 'min')
+                self.after(self.pre_term*60000, self.send_mqtt_data)
+        else:
+                # print('다르다')
+                print('MQTT send term : ', self.pre_term, 'min')
                 
-        self.after(300000, self.send_mqtt_data)
+                self.after(self.pre_term*60000, self.send_mqtt_data)
+                self.pre_term = self.controller.send_term
         
     def get_all_data(self):
         check_value1 = str(self.controller.TVOC)

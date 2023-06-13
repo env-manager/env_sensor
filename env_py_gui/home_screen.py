@@ -319,7 +319,7 @@ class Home(ttk.Frame):
         self.TVOC_label = Label(tvoc_part, text=self.TVOC, bg='black', fg='white', font=('Arial', 15))
         self.TVOC_label.grid(row=1, column=0, sticky='NEWS')
         self.TVOC_label.bind("<Button-1>", lambda event: event_func(event, sensor_name='TVOC'))
-        self.TVOC_unit_label = Label(tvoc_part, text='PPB', bg='black', fg='white', font=('Arial', 11))
+        self.TVOC_unit_label = Label(tvoc_part, text='ug/m3', bg='black', fg='white', font=('Arial', 11))
         self.TVOC_unit_label.grid(row=2,column=0)
 
         
@@ -408,7 +408,7 @@ class Home(ttk.Frame):
         self.CH2O_label = Label(ch2o_part, text=self.CH2O, bg='black', fg='white', font=('Arial', 15))
         self.CH2O_label.grid(row=1, column=0, sticky='NEWS')
         self.CH2O_label.bind("<Button-1>", lambda event: event_func(event, sensor_name='CH2O'))
-        self.CH2O_unit_label = Label(ch2o_part, text='PPM', bg='black', fg='white', font=('Arial', 11))
+        self.CH2O_unit_label = Label(ch2o_part, text='ug/m3', bg='black', fg='white', font=('Arial', 11))
         self.CH2O_unit_label.grid(row=2,column=0)
 
 

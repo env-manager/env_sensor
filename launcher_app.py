@@ -21,10 +21,10 @@ import paho.mqtt.client as mqtt
 
 ######################################################
 # sangsang temp account test
-print('장치 번호 : ', device_info[DEVICE_NUM-1][0])
-print('장치 아이디 : ', device_info[DEVICE_NUM-1][1])
-print('장치 이름 : ', device_info[DEVICE_NUM-1][2])
-print('장치 토큰 : ', device_info[DEVICE_NUM-1][3])
+# print('장치 번호 : ', device_info[DEVICE_NUM-1][0])
+# print('장치 아이디 : ', device_info[DEVICE_NUM-1][1])
+# print('장치 이름 : ', device_info[DEVICE_NUM-1][2])
+# print('장치 토큰 : ', device_info[DEVICE_NUM-1][3])
 
 
 
@@ -32,10 +32,10 @@ print('장치 토큰 : ', device_info[DEVICE_NUM-1][3])
 THINGSBOARD_HOST = "210.117.143.37"
 PORT = 10061
 # 임의 토큰
-ACCESS_TOKEN = '51ZFhNEWFXLi4pW758Gy'
+ACCESS_TOKEN = device_info[DEVICE_NUM-1][3]
 import json
 # 임의로 잡아둠
-client_id = 'd41e2660-f0a1-11ed-97fe-477ec4188e5d'
+client_id = device_info[DEVICE_NUM-1][1]
 
 if __name__ == '__main__':
 

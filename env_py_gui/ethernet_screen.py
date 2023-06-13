@@ -131,7 +131,7 @@ class EthernetScreen(ttk.Frame):
             # self.IPv4_toggle.config(image=self.nothing, command=self.ipv4_none)
             print('Auto')
         elif self.connection_status == 'Manual':
-            self.IPv4_label.config(text='IPv4 설정')
+            self.IPv4_label.config(text='IPv4 설정 ->')
             # self.IPv4_toggle.config(image=self.off, command= self.change_ipv4_mode)
             print('Manual')
     

@@ -9,6 +9,7 @@ sys.path.append('/home/orangepi/env_sensor/info')
 # from device_number import DEVICE_NUM
 from app import EnvSensor, FULL_SCREEN
 from uart_data_thread import UartDataThread
+from device_list import device_info
 from device_number import DEVICE_NUM
 import os, subprocess
 import threading
@@ -20,6 +21,11 @@ import paho.mqtt.client as mqtt
 
 ######################################################
 # sangsang temp account test
+print('장치 번호 : ', device_info[DEVICE_NUM-1][0])
+print('장치 아이디 : ', device_info[DEVICE_NUM-1][1])
+print('장치 이름 : ', device_info[DEVICE_NUM-1][2])
+print('장치 토큰 : ', device_info[DEVICE_NUM-1][3])
+
 
 
 # ThingsBoard 호스트와 포트 설정

@@ -49,8 +49,10 @@ if __name__ == '__main__':
     def on_connect(client, userdata, flags, rc):
         # print("Connected with result code " + str(rc))
         # access Good -> subscribe
-        client.subscribe("v1/devices/me/rpc/request/+")
-
+        try:
+            client.subscribe("v1/devices/me/rpc/request/+")
+        except:
+            print('No internet connection here')
     # 메시지 수신 콜백 함수 정의
     def on_message(client, userdata, msg):
         # print("Received message: " + msg.topic + " " + str(msg.payload))
@@ -58,12 +60,10 @@ if __name__ == '__main__':
         # print('topic : ', msg.topic)
         # print('payload : ', str(msg.payload))
         
-        decode_code = msg.payload.decode('utf-8')
-        
-            
-        dict_data = json.loads(decode_code)
         # print(dict_data)
         try:
+            decode_code = msg.payload.decode('utf-8')    
+            dict_data = json.loads(decode_code)
             if dict_data['method'] == 'setValue':           # 센서 보고 주기 설정
                 # print('method is setValue')
                 # print('params (type) : ', type(dict_data['params']))

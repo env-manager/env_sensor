@@ -120,9 +120,11 @@ if __name__ == '__main__':
                 client.publish(response_topic, "pong")
     client.on_connect = on_connect
     client.on_message = on_message
-    
     client.username_pw_set(ACCESS_TOKEN)
-    client.connect(THINGSBOARD_HOST, PORT, 60)
+    try:  
+        client.connect(THINGSBOARD_HOST, PORT, 60)
+    except:
+        print("Plz reboot your COM")
     # client.loop_forever()
     mqtt_thread = threading.Thread(target=client.loop_forever)
     mqtt_thread.start()

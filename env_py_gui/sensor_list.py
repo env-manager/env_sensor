@@ -19,7 +19,7 @@
 # sensorname : ['main에서 쓰이는 img.png', 'element_page에서 쓰이는 img.png']
 SENSOR_DICT = {
     'TVOC':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-TVOC.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/TVOC.png', 6.7, 20, 66.7,13.3,'ug/m3'],  # ~6.7 : 좋음(1) || ~20 : 보통(2) || ~66.7 : 나쁨(3) || 66.7~ : 아주나쁨(4)        마지막은 권고치
-    'CO2':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO2.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO2.png', 450, 1000, 2000,1000, 'ppm'],
+    'CO2':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO2.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO2.png', 450, 1000, 1900,1000, 'ppm'],
     'PM1' :['','',1,2,3,2, 'ug/m3'],         # <= temp range
     'PM25':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM2.5.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM2.5.png', 15, 35, 75,35,'ug/m3'],
     'PM10':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM10.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM10.png', 30, 80, 150,75,'ug/m3'],

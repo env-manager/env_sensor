@@ -18,12 +18,12 @@
 
 # sensorname : ['main에서 쓰이는 img.png', 'element_page에서 쓰이는 img.png']
 SENSOR_DICT = {
-    'TVOC':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-TVOC.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/TVOC.png', 6.7, 20, 66.7,13.3,'ug/m3'],  # ~6.7 : 좋음(1) || ~20 : 보통(2) || ~66.7 : 나쁨(3) || 66.7~ : 아주나쁨(4)        마지막은 권고치
+    'TVOC':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-TVOC.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/TVOC.png', 200, 500, 1000,500,'ug/m3'],  # ~6.7 : 좋음(1) || ~20 : 보통(2) || ~66.7 : 나쁨(3) || 66.7~ : 아주나쁨(4)        마지막은 권고치
     'CO2':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO2.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO2.png', 450, 1000, 1900,1000, 'ppm'],
-    'PM1' :['','',1,2,3,2, 'ug/m3'],         # <= temp range
+    'PM1' :['','',10,15,40,10, 'ug/m3'],         # <= temp range
     'PM25':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM2.5.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM2.5.png', 15, 35, 75,35,'ug/m3'],
     'PM10':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM10.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM10.png', 30, 80, 150,75,'ug/m3'],
-    'CH2O':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CH2O.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CH2O.png', 1.2, 12, 96, 120, 'ug/m3'], # ppm * 30.03 * 1000 / 25.025
+    'CH2O':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CH2O.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CH2O.png', 80, 100, 500, 100, 'ug/m3'], # ppm * 30.03 * 1000 / 25.025
     'SM':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-Sm.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/Sm.png', 0.0001, 1, 2,1, 'ppm'],  # temp
     'NH3':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-NH3.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/NH3.png', 0.15, 1, 5,1, 'ppm'],
     'CO':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO.png', 2, 9, 15,10, 'ppm'],

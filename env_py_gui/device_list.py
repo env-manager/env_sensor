@@ -30,5 +30,12 @@ device_info = [
     [27,'58da13e0-f463-11ed-97fe-477ec4188e5d','Device 30000026','9A6b4DdxIZXL9jN70xJB'],
     [28,'6de29960-f463-11ed-97fe-477ec4188e5d','Device 30000027','gzuMIjk1Ifj6oKF7rghw'],
     [29,'8717b190-f463-11ed-97fe-477ec4188e5d','Device 30000028','5cfUDJnRXzN0NmnwzdBp'],
-    [30,'980864e0-f463-11ed-97fe-477ec4188e5d','Device 30000029','c8LiKehmr1deR9LpsfHZ']
+    [30,'980864e0-f463-11ed-97fe-477ec4188e5d','Device 30000029','c8LiKehmr1deR9LpsfHZ'],
+    [31,'f8746c80-303a-11ee-ba76-477ec4188e5d','Device 30000030','txprXkQXqfpkm9zjUiWk'],
+    [32,'12db26e0-303b-11ee-ba76-477ec4188e5d','Device 30000031','Pm7h2V2o2YN1A7dsmIrN'],
+    [33,'3293ba10-303b-11ee-ba76-477ec4188e5d','Device 30000032','jyFuDycZoKc1LlQ2EcIL'],
+    [34,'3bd6ca40-303b-11ee-ba76-477ec4188e5d','Device 30000033','0miWQsEjiHx4uK7Eq44O'],
+    [35,'4945d0e0-303b-11ee-ba76-477ec4188e5d','Device 30000034','85CTb8icx7fH34MII2xn'],
+    [36,'54ef0ba0-303b-11ee-ba76-477ec4188e5d','Device 30000035','ytSNfCaYGHUM6WmkFfTl'], 
 ]
+

@@ -24,7 +24,7 @@ SENSOR_DICT = {
     'PM25':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM2.5.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM2.5.png', 25, 35, 75,35,'ug/m3'],
     'PM10':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-PM10.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/PM10.png', 30, 75, 150,75,'ug/m3'],
     'CH2O':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CH2O.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CH2O.png', 80, 100, 500, 100, 'ug/m3'], # ppm * 30.03 * 1000 / 25.025
-    'SM':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-Sm.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/Sm.png', 0.005, 1, 2,1, 'ppm'],  # temp
+    'SM':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-Sm.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/Sm.png', 0.005, 1, 2,1.5, 'ppm'],  # temp
     'NH3':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-NH3.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/NH3.png', 0.5, 1, 5,1, 'ppm'],
     'CO':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-CO.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/CO.png', 4, 9, 15,10, 'ppm'],
     'NO2':['/home/orangepi/env_sensor/env_py_gui/img/sensor/Main-NO2.png','/home/orangepi/env_sensor/env_py_gui/img/sensor/NO2.png', 0.03, 0.05, 0.2,0.05, 'ppm'],

@@ -45,7 +45,7 @@ class Home(ttk.Frame):
         self.controller = controller
         self.show_wifi = show_wifi
         self.show_ethernet = show_ethernet
-        self.info_device = device_info[self.controller.device_number-1]
+        self.info_device = device_info[self.controller.device_number]
         self.thingsboard_connection_state = False
         self.pre_term = self.controller.send_term
         self.TVOC = 0.0

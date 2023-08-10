@@ -861,8 +861,8 @@ class Home(ttk.Frame):
         'ts': ts,
         'values':{
                 "S_0_0":float(self.CH2O),
-                "S_0_1":float(self.PM25),
-                "S_0_2":float(self.PM10),
+                "S_0_1":int(self.PM25),
+                "S_0_2":int(self.PM10),
                 "S_0_3":float(self.TVOC),
                 "S_0_4":float(self.CO2),
                 "S_0_5":float(self.temperature),
@@ -876,7 +876,7 @@ class Home(ttk.Frame):
                 "S_0_13":float(self.NH3),
                 "S_0_14":float(self.LIGHT),
                 "S_0_15":float(self.O3),
-                "S_0_16":float(self.PM1),
+                "S_0_16":int(self.PM1),
                 "ver":CURRENT_VERSION,
                 }
         }
@@ -951,7 +951,7 @@ class Home(ttk.Frame):
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
-                        self.PM10_label.config(text=self.PM10)
+                        self.PM10_label.config(text=int(self.PM10))
                 
                 self.CH2O = self.controller.CH2O
                 if self.CH2O < 0:

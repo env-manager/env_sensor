@@ -402,7 +402,7 @@ class Element(ttk.Frame):
         #     self.change_gauge(value, max)
 
         elif sensor_name == 'PM25':
-            text = 'PM1.0 - ' + str(self.controller.PM1) + ' [' + SENSOR_DICT[sensor_name][6] + ']\n' + 'PM2.5 - '+str(self.controller.PM25) + ' [' + SENSOR_DICT[sensor_name][6] + ']'
+            text = 'PM1.0 - ' + str(int(self.controller.PM1)) + ' [' + SENSOR_DICT[sensor_name][6] + ']\n' + 'PM2.5 - '+str(int(self.controller.PM25)) + ' [' + SENSOR_DICT[sensor_name][6] + ']'
             self.measurement_label.config(text=text)
             self.change_to_level(self.controller.PM25_level)
             value = float(self.controller.PM25)
@@ -411,7 +411,7 @@ class Element(ttk.Frame):
             self.change_gauge(value, max)
 
         elif sensor_name == 'PM10':
-            text = str(self.controller.PM10) + ' [' + SENSOR_DICT[sensor_name][6] + ']'
+            text = str(int(self.controller.PM10)) + ' [' + SENSOR_DICT[sensor_name][6] + ']'
             self.measurement_label.config(text=text)
             self.change_to_level(self.controller.PM10_level)
             value = float(self.controller.PM10)

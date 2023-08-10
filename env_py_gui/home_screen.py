@@ -939,13 +939,13 @@ class Home(ttk.Frame):
                 if self.PM1 < 0:
                         self.PM1_label.config(text='...')        
                 else:
-                        self.PM1_label.config(text=self.PM1)
+                        self.PM1_label.config(text=int(self.PM1))
                 
                 self.PM25 = self.controller.PM25
                 if self.PM25 < 0:
                         self.PM25_label.config(text='...')        
                 else:
-                        self.PM25_label.config(text=self.PM25)
+                        self.PM25_label.config(text=int(self.PM25))
                 
                 self.PM10 = self.controller.PM10
                 if self.PM10 < 0:

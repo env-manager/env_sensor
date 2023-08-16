@@ -895,12 +895,12 @@ class Home(ttk.Frame):
                 # print('MQTT send term : ', self.pre_term, 'min')
                 
                 self.pre_term = self.controller.send_term
-                self.after(self.pre_term*60000, self.send_mqtt_data)
+                self.after(self.pre_term*60000, self.send_mqtt_data)  # 
         
     def get_all_data(self):
-        check_value1 = str(self.controller.TVOC)
-        check_value2 = str(self.controller.temperature)
-        check_value3 = str(self.controller.humidity)
+        check_value1 = str(self.controller.TVOC)        #  
+        check_value2 = str(self.controller.temperature) # 
+        check_value3 = str(self.controller.humidity)    # 
         
         
         

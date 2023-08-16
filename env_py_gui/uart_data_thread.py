@@ -71,6 +71,7 @@ class UartDataThread(Thread):
         self.controller.O3 = -1
         self.controller.temperature = -100
         self.controller.humidity = -1
+        self.init_state = True
         
     # def show_data(self):
     #     print(self.TVOC)
@@ -112,6 +113,7 @@ class UartDataThread(Thread):
                         self.last_x = self.x
                         self.last_y = self.y
                         pyautogui.moveTo(self.x, self.y)
+                        self.init_state = False
 
                         
                         
@@ -120,329 +122,330 @@ class UartDataThread(Thread):
                         # if self.x > 0 and self.y > 0:
                         #     pyautogui.moveTo(self.x, self.y)
                         # print('데이터 수집')
-                        self.two_pos = [[self.last_x, self.last_y], [-1, -1]]
-                        if(self.two_pos[0] != [-1, -1]) and (self.two_pos[1] == [-1, -1]):
-                            pyautogui.click()
-                        self.last_x = -1
-                        self.last_y = -1
-                        self.TVOC = float(serial_list[2])
-                        self.CO2 = float(serial_list[3])
-                        self.PM1 = float(serial_list[4])
-                        self.PM25 = float(serial_list[5])
-                        self.PM10 = float(serial_list[6])
-                        self.CH2O = float(serial_list[7])
-                        self.Sm = float(serial_list[8])
-                        self.NH3 = float(serial_list[9])
-                        self.CO = float(serial_list[10])
-                        self.NO2 = float(serial_list[11])
-                        self.H2S = float(serial_list[12])
-                        self.LIGHT = float(serial_list[13])
-                        self.SOUND = float(serial_list[14])
-                        self.Rn = float(serial_list[15])
-                        self.O3 = float(serial_list[16])
-                        self.temperature = float(serial_list[17])
-                        self.humidity = float(serial_list[18])
-                        
-                        
-                        # if self.x ==0 and self.y ==0:       # 터치를 하고 있지 않을때
-                        
-                        self.controller.TVOC = float(serial_list[2])
-                        self.controller.CO2 = float(serial_list[3])
-                        self.controller.PM1 = float(serial_list[4])
-                        self.controller.PM25 = float(serial_list[5])
-                        self.controller.PM10 = float(serial_list[6])
-                        self.controller.CH2O = float(serial_list[7])
-                        self.controller.Sm = float(serial_list[8])
-                        self.controller.NH3 = float(serial_list[9])
-                        self.controller.CO = float(serial_list[10])
-                        self.controller.NO2 = float(serial_list[11])
-                        self.controller.H2S = float(serial_list[12])
-                        self.controller.LIGHT = float(serial_list[13])
-                        self.controller.SOUND = float(serial_list[14])
-                        self.controller.Rn = float(serial_list[15])
-                        self.controller.O3 = float(serial_list[16])
-                        self.controller.temperature = float(serial_list[17])
-                        self.controller.humidity = float(serial_list[18])
-                        
-                        
-                        
+                        if(self.init_state == False):
+                            self.two_pos = [[self.last_x, self.last_y], [-1, -1]]
+                            if(self.two_pos[0] != [-1, -1]) and (self.two_pos[1] == [-1, -1]):
+                                pyautogui.click()
+                            self.last_x = -1
+                            self.last_y = -1
+                            self.TVOC = float(serial_list[2])
+                            self.CO2 = float(serial_list[3])
+                            self.PM1 = float(serial_list[4])
+                            self.PM25 = float(serial_list[5])
+                            self.PM10 = float(serial_list[6])
+                            self.CH2O = float(serial_list[7])
+                            self.Sm = float(serial_list[8])
+                            self.NH3 = float(serial_list[9])
+                            self.CO = float(serial_list[10])
+                            self.NO2 = float(serial_list[11])
+                            self.H2S = float(serial_list[12])
+                            self.LIGHT = float(serial_list[13])
+                            self.SOUND = float(serial_list[14])
+                            self.Rn = float(serial_list[15])
+                            self.O3 = float(serial_list[16])
+                            self.temperature = float(serial_list[17])
+                            self.humidity = float(serial_list[18])
+                            
+                            
+                            # if self.x ==0 and self.y ==0:       # 터치를 하고 있지 않을때
+                            
+                            self.controller.TVOC = float(serial_list[2])
+                            self.controller.CO2 = float(serial_list[3])
+                            self.controller.PM1 = float(serial_list[4])
+                            self.controller.PM25 = float(serial_list[5])
+                            self.controller.PM10 = float(serial_list[6])
+                            self.controller.CH2O = float(serial_list[7])
+                            self.controller.Sm = float(serial_list[8])
+                            self.controller.NH3 = float(serial_list[9])
+                            self.controller.CO = float(serial_list[10])
+                            self.controller.NO2 = float(serial_list[11])
+                            self.controller.H2S = float(serial_list[12])
+                            self.controller.LIGHT = float(serial_list[13])
+                            self.controller.SOUND = float(serial_list[14])
+                            self.controller.Rn = float(serial_list[15])
+                            self.controller.O3 = float(serial_list[16])
+                            self.controller.temperature = float(serial_list[17])
+                            self.controller.humidity = float(serial_list[18])
+                            
+                            
+                            
 
-                        # self.key_value_list = [[],[]]
-                        # self.key_list = []
-                        # self.value_list = []
-                        for k, v in SENSOR_DICT.items():
-                            if k == 'TVOC':
-                                if self.TVOC >= 0:
-                                    if self.TVOC < v[2]:
-                                        self.controller.TVOC_level = 1
-                                        continue
-                                    elif self.TVOC < v[3]:
-                                        self.controller.TVOC_level = 2
-                                        continue
-                                    elif self.TVOC < v[4]:
-                                        self.controller.TVOC_level = 3
-                                        continue
+                            # self.key_value_list = [[],[]]
+                            # self.key_list = []
+                            # self.value_list = []
+                            for k, v in SENSOR_DICT.items():
+                                if k == 'TVOC':
+                                    if self.TVOC >= 0:
+                                        if self.TVOC < v[2]:
+                                            self.controller.TVOC_level = 1
+                                            continue
+                                        elif self.TVOC < v[3]:
+                                            self.controller.TVOC_level = 2
+                                            continue
+                                        elif self.TVOC < v[4]:
+                                            self.controller.TVOC_level = 3
+                                            continue
+                                        else:
+                                            self.controller.TVOC_level = 4
+                                            continue
                                     else:
-                                        self.controller.TVOC_level = 4
+                                        self.controller.TVOC_level = 0
+                                        print('TVOC error')
+                                        continue
+                                elif k == 'CO2':
+                                    if self.CO2 >= 0:
+                                        if self.CO2 < v[2]:
+                                            self.controller.CO2_level = 1
+                                            continue
+                                        elif self.CO2 < v[3]:
+                                            self.controller.CO2_level = 2
+                                            continue
+                                        elif self.CO2 < v[4]:
+                                            self.controller.CO2_level = 3
+                                            continue
+                                        else:
+                                            self.controller.CO2_level = 4
+                                            continue
+                                    else:
+                                        self.controller.CO2_level = 0
+                                        print('CO2 error')
+                                        continue
+                                elif k == 'PM1':
+                                    if self.PM1 >= 0:
+                                        if self.PM1 < v[2]:
+                                            self.controller.PM1_level = 1
+                                            continue
+                                        elif self.PM1 < v[3]:
+                                            self.controller.PM1_level = 2
+                                            continue
+                                        elif self.PM1 < v[4]:
+                                            self.controller.PM1_level = 3
+                                            continue
+                                        else:
+                                            self.controller.PM1_level = 4
+                                            continue
+                                    else:
+                                        self.controller.PM1_level = 0
+                                        print('PM1 error')
+                                        continue
+                                elif k == 'PM25':
+                                    if self.PM25 >= 0:
+                                        if self.PM25 < v[2]:
+                                            self.controller.PM25_level = 1
+                                            continue
+                                        elif self.PM25 < v[3]:
+                                            self.controller.PM25_level = 2
+                                            continue
+                                        elif self.PM25 < v[4]:
+                                            self.controller.PM25_level = 3
+                                            continue
+                                        else:
+                                            self.controller.PM25_level = 4
+                                            continue
+                                    else:
+                                        self.controller.PM25_level = 0
+                                        print('PM25 error')
+                                        continue
+                                elif k == 'PM10':
+                                    if self.PM10 >= 0:
+                                        if self.PM10 < v[2]:
+                                            self.controller.PM10_level = 1
+                                            continue
+                                        elif self.PM10 < v[3]:
+                                            self.controller.PM10_level = 2
+                                            continue
+                                        elif self.PM10 < v[4]:
+                                            self.controller.PM10_level = 3
+                                            continue
+                                        else:
+                                            self.controller.PM10_level = 4
+                                            continue
+                                    else:
+                                        self.controller.PM10_level = 0
+                                        print('PM10 error')
+                                        continue
+                                elif k == 'CH2O':
+                                    if self.CH2O >= 0:
+                                        if self.CH2O < v[2]:
+                                            self.controller.CH2O_level = 1
+                                            continue
+                                        elif self.CH2O < v[3]:
+                                            self.controller.CH2O_level = 2
+                                            continue
+                                        elif self.CH2O < v[4]:
+                                            self.controller.CH2O_level = 3
+                                            continue
+                                        else:
+                                            self.controller.CH2O_level = 4
+                                            continue
+                                    else:
+                                        self.controller.CH2O_level = 0
+                                        print('CH2O error')
+                                        continue
+                                elif k == 'SM':
+                                    if self.Sm >= 0:
+                                        if self.Sm < v[2]:
+                                            self.controller.Sm_level = 1
+                                            continue
+                                        elif self.Sm < v[3]:
+                                            self.controller.Sm_level = 2
+                                            continue
+                                        elif self.Sm < v[4]:
+                                            self.controller.Sm_level = 3
+                                            continue
+                                        else:
+                                            self.controller.Sm_level = 4
+                                            continue
+                                    else:
+                                        self.controller.Sm_level = 0
+                                        print('SM error')
+                                        continue
+                                elif k == 'NH3':
+                                    if self.NH3 >= 0:
+                                        if self.NH3 < v[2]:
+                                            self.controller.NH3_level = 1
+                                            continue
+                                        elif self.NH3 < v[3]:
+                                            self.controller.NH3_level = 2
+                                            continue
+                                        elif self.NH3 < v[4]:
+                                            self.controller.NH3_level = 3
+                                            continue
+                                        else:
+                                            self.controller.NH3_level = 4
+                                            continue
+                                    else:
+                                        self.controller.NH3_level = 0
+                                        print('NH3 error')
+                                        continue
+                                elif k == 'CO':
+                                    if self.CO >= 0:
+                                        if self.CO < v[2]:
+                                            self.controller.CO_level = 1
+                                            continue
+                                        elif self.CO < v[3]:
+                                            self.controller.CO_level = 2
+                                            continue
+                                        elif self.CO < v[4]:
+                                            self.controller.CO_level = 3
+                                            continue
+                                        else:
+                                            self.controller.CO_level = 4
+                                            continue
+                                    else:
+                                        self.controller.CO_level = 0
+                                        print('CO error')
+                                        continue
+                                elif k == 'NO2':
+                                    if self.NO2 >= 0:
+                                        if self.NO2 < v[2]:
+                                            self.controller.NO2_level = 1
+                                            continue
+                                        elif self.NO2 < v[3]:
+                                            self.controller.NO2_level = 2
+                                            continue
+                                        elif self.NO2 < v[4]:
+                                            self.controller.NO2_level = 3
+                                            continue
+                                        else:
+                                            self.controller.NO2_level = 4
+                                            continue
+                                    else:
+                                        self.controller.NO2_level = 0
+                                        print('NO2 error')
+                                        continue
+                                elif k == 'H2S':
+                                    if self.H2S >= 0:
+                                        if self.H2S < v[2]:
+                                            self.controller.H2S_level = 1
+                                            continue
+                                        elif self.H2S < v[3]:
+                                            self.controller.H2S_level = 2
+                                            continue
+                                        elif self.H2S < v[4]:
+                                            self.controller.H2S_level = 3
+                                            continue
+                                        else:
+                                            self.controller.H2S_level = 4
+                                            continue
+                                    else:
+                                        self.controller.H2S_level = 0
+                                        print('H2S error')
+                                        continue
+                                elif k == 'LIGHT':
+                                    if self.LIGHT >= 0:
+                                        if self.LIGHT < v[2]:
+                                            self.controller.LIGHT_level = 1
+                                            continue
+                                        elif self.LIGHT < v[3]:
+                                            self.controller.LIGHT_level = 2
+                                            continue
+                                        elif self.LIGHT < v[4]:
+                                            self.controller.LIGHT_level = 3
+                                            continue
+                                        else:
+                                            self.controller.LIGHT_level = 4
+                                            continue
+                                    else:
+                                        self.controller.LIGHT_level = 0
+                                        print('LIGHT error')
+                                        continue
+                                elif k == 'SOUND':
+                                    if self.SOUND >= 0:
+                                        if self.SOUND < v[2]:
+                                            self.controller.SOUND_level = 1
+                                            continue
+                                        elif self.SOUND < v[3]:
+                                            self.controller.SOUND_level = 2
+                                            continue
+                                        elif self.SOUND < v[4]:
+                                            self.controller.SOUND_level = 3
+                                            continue
+                                        else:
+                                            self.controller.SOUND_level = 4
+                                            continue
+                                    else:
+                                        self.controller.SOUND_level = 0
+                                        print('SOUND error')
+                                        continue
+                                elif k == 'RN':
+                                    if self.Rn >= 0:
+                                        if self.Rn < v[2]:
+                                            self.controller.Rn_level = 1
+                                            continue
+                                        elif self.Rn < v[3]:
+                                            self.controller.Rn_level = 2
+                                            continue
+                                        elif self.Rn < v[4]:
+                                            self.controller.Rn_level = 3
+                                            continue
+                                        else:
+                                            self.controller.Rn_level = 4
+                                            continue
+                                    else:
+                                        self.controller.Rn_level = 0
+                                        print('RN error')
+                                        continue
+                                elif k == 'O3':
+                                    if self.O3 >= 0:
+                                        if self.O3 < v[2]:
+                                            self.controller.O3_level = 1
+                                            continue
+                                        elif self.O3 < v[3]:
+                                            self.controller.O3_level = 2
+                                            continue
+                                        elif self.O3 < v[4]:
+                                            self.controller.O3_level = 3
+                                            continue
+                                        else:
+                                            self.controller.O3_level = 4
+                                            continue
+                                    else:
+                                        self.controller.O3_level = 0
+                                        print('O3 error')
                                         continue
                                 else:
-                                    self.controller.TVOC_level = 0
-                                    print('TVOC error')
-                                    continue
-                            elif k == 'CO2':
-                                if self.CO2 >= 0:
-                                    if self.CO2 < v[2]:
-                                        self.controller.CO2_level = 1
-                                        continue
-                                    elif self.CO2 < v[3]:
-                                        self.controller.CO2_level = 2
-                                        continue
-                                    elif self.CO2 < v[4]:
-                                        self.controller.CO2_level = 3
-                                        continue
-                                    else:
-                                        self.controller.CO2_level = 4
-                                        continue
-                                else:
-                                    self.controller.CO2_level = 0
-                                    print('CO2 error')
-                                    continue
-                            elif k == 'PM1':
-                                if self.PM1 >= 0:
-                                    if self.PM1 < v[2]:
-                                        self.controller.PM1_level = 1
-                                        continue
-                                    elif self.PM1 < v[3]:
-                                        self.controller.PM1_level = 2
-                                        continue
-                                    elif self.PM1 < v[4]:
-                                        self.controller.PM1_level = 3
-                                        continue
-                                    else:
-                                        self.controller.PM1_level = 4
-                                        continue
-                                else:
-                                    self.controller.PM1_level = 0
-                                    print('PM1 error')
-                                    continue
-                            elif k == 'PM25':
-                                if self.PM25 >= 0:
-                                    if self.PM25 < v[2]:
-                                        self.controller.PM25_level = 1
-                                        continue
-                                    elif self.PM25 < v[3]:
-                                        self.controller.PM25_level = 2
-                                        continue
-                                    elif self.PM25 < v[4]:
-                                        self.controller.PM25_level = 3
-                                        continue
-                                    else:
-                                        self.controller.PM25_level = 4
-                                        continue
-                                else:
-                                    self.controller.PM25_level = 0
-                                    print('PM25 error')
-                                    continue
-                            elif k == 'PM10':
-                                if self.PM10 >= 0:
-                                    if self.PM10 < v[2]:
-                                        self.controller.PM10_level = 1
-                                        continue
-                                    elif self.PM10 < v[3]:
-                                        self.controller.PM10_level = 2
-                                        continue
-                                    elif self.PM10 < v[4]:
-                                        self.controller.PM10_level = 3
-                                        continue
-                                    else:
-                                        self.controller.PM10_level = 4
-                                        continue
-                                else:
-                                    self.controller.PM10_level = 0
-                                    print('PM10 error')
-                                    continue
-                            elif k == 'CH2O':
-                                if self.CH2O >= 0:
-                                    if self.CH2O < v[2]:
-                                        self.controller.CH2O_level = 1
-                                        continue
-                                    elif self.CH2O < v[3]:
-                                        self.controller.CH2O_level = 2
-                                        continue
-                                    elif self.CH2O < v[4]:
-                                        self.controller.CH2O_level = 3
-                                        continue
-                                    else:
-                                        self.controller.CH2O_level = 4
-                                        continue
-                                else:
-                                    self.controller.CH2O_level = 0
-                                    print('CH2O error')
-                                    continue
-                            elif k == 'SM':
-                                if self.Sm >= 0:
-                                    if self.Sm < v[2]:
-                                        self.controller.Sm_level = 1
-                                        continue
-                                    elif self.Sm < v[3]:
-                                        self.controller.Sm_level = 2
-                                        continue
-                                    elif self.Sm < v[4]:
-                                        self.controller.Sm_level = 3
-                                        continue
-                                    else:
-                                        self.controller.Sm_level = 4
-                                        continue
-                                else:
-                                    self.controller.Sm_level = 0
-                                    print('SM error')
-                                    continue
-                            elif k == 'NH3':
-                                if self.NH3 >= 0:
-                                    if self.NH3 < v[2]:
-                                        self.controller.NH3_level = 1
-                                        continue
-                                    elif self.NH3 < v[3]:
-                                        self.controller.NH3_level = 2
-                                        continue
-                                    elif self.NH3 < v[4]:
-                                        self.controller.NH3_level = 3
-                                        continue
-                                    else:
-                                        self.controller.NH3_level = 4
-                                        continue
-                                else:
-                                    self.controller.NH3_level = 0
-                                    print('NH3 error')
-                                    continue
-                            elif k == 'CO':
-                                if self.CO >= 0:
-                                    if self.CO < v[2]:
-                                        self.controller.CO_level = 1
-                                        continue
-                                    elif self.CO < v[3]:
-                                        self.controller.CO_level = 2
-                                        continue
-                                    elif self.CO < v[4]:
-                                        self.controller.CO_level = 3
-                                        continue
-                                    else:
-                                        self.controller.CO_level = 4
-                                        continue
-                                else:
-                                    self.controller.CO_level = 0
-                                    print('CO error')
-                                    continue
-                            elif k == 'NO2':
-                                if self.NO2 >= 0:
-                                    if self.NO2 < v[2]:
-                                        self.controller.NO2_level = 1
-                                        continue
-                                    elif self.NO2 < v[3]:
-                                        self.controller.NO2_level = 2
-                                        continue
-                                    elif self.NO2 < v[4]:
-                                        self.controller.NO2_level = 3
-                                        continue
-                                    else:
-                                        self.controller.NO2_level = 4
-                                        continue
-                                else:
-                                    self.controller.NO2_level = 0
-                                    print('NO2 error')
-                                    continue
-                            elif k == 'H2S':
-                                if self.H2S >= 0:
-                                    if self.H2S < v[2]:
-                                        self.controller.H2S_level = 1
-                                        continue
-                                    elif self.H2S < v[3]:
-                                        self.controller.H2S_level = 2
-                                        continue
-                                    elif self.H2S < v[4]:
-                                        self.controller.H2S_level = 3
-                                        continue
-                                    else:
-                                        self.controller.H2S_level = 4
-                                        continue
-                                else:
-                                    self.controller.H2S_level = 0
-                                    print('H2S error')
-                                    continue
-                            elif k == 'LIGHT':
-                                if self.LIGHT >= 0:
-                                    if self.LIGHT < v[2]:
-                                        self.controller.LIGHT_level = 1
-                                        continue
-                                    elif self.LIGHT < v[3]:
-                                        self.controller.LIGHT_level = 2
-                                        continue
-                                    elif self.LIGHT < v[4]:
-                                        self.controller.LIGHT_level = 3
-                                        continue
-                                    else:
-                                        self.controller.LIGHT_level = 4
-                                        continue
-                                else:
-                                    self.controller.LIGHT_level = 0
-                                    print('LIGHT error')
-                                    continue
-                            elif k == 'SOUND':
-                                if self.SOUND >= 0:
-                                    if self.SOUND < v[2]:
-                                        self.controller.SOUND_level = 1
-                                        continue
-                                    elif self.SOUND < v[3]:
-                                        self.controller.SOUND_level = 2
-                                        continue
-                                    elif self.SOUND < v[4]:
-                                        self.controller.SOUND_level = 3
-                                        continue
-                                    else:
-                                        self.controller.SOUND_level = 4
-                                        continue
-                                else:
-                                    self.controller.SOUND_level = 0
-                                    print('SOUND error')
-                                    continue
-                            elif k == 'RN':
-                                if self.Rn >= 0:
-                                    if self.Rn < v[2]:
-                                        self.controller.Rn_level = 1
-                                        continue
-                                    elif self.Rn < v[3]:
-                                        self.controller.Rn_level = 2
-                                        continue
-                                    elif self.Rn < v[4]:
-                                        self.controller.Rn_level = 3
-                                        continue
-                                    else:
-                                        self.controller.Rn_level = 4
-                                        continue
-                                else:
-                                    self.controller.Rn_level = 0
-                                    print('RN error')
-                                    continue
-                            elif k == 'O3':
-                                if self.O3 >= 0:
-                                    if self.O3 < v[2]:
-                                        self.controller.O3_level = 1
-                                        continue
-                                    elif self.O3 < v[3]:
-                                        self.controller.O3_level = 2
-                                        continue
-                                    elif self.O3 < v[4]:
-                                        self.controller.O3_level = 3
-                                        continue
-                                    else:
-                                        self.controller.O3_level = 4
-                                        continue
-                                else:
-                                    self.controller.O3_level = 0
-                                    print('O3 error')
-                                    continue
-                            else:
-                                print('uart k, v 에서 잘못되었다... 왜?')
+                                    print('uart k, v 에서 잘못되었다... 왜?')
                             
                         
                             
